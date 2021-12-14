@@ -1,0 +1,25 @@
+{
+  "name": "purescript-mdast",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sigma-andex/purescript-mdast.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT-0",
+  "bugs": {
+    "url": "https://github.com/sigma-andex/purescript-mdast/issues"
+  },
+  "homepage": "https://github.com/sigma-andex/purescript-mdast#readme",
+  "devDependencies": {
+    "purs-tidy": "^0.6.4",
+    "mdast-util-from-markdown-facade": "file:./mdast-util-from-markdown-facade",
+    "spago": "^0.20.3"
+  }
+}
