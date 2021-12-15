@@ -1,5 +1,5 @@
 {
-  "name": "purescript-mdast",
+  "name": "purescript-mdast-util-from-markdown",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
