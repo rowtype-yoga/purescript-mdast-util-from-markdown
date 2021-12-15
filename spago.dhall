@@ -1,4 +1,4 @@
-{ name = "mdast"
+{ name = "mdast-util-from-markdown"
 , dependencies =
   [ "aff"
   , "aff-promise"
