@@ -5,7 +5,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/sigma-andex/purescript-mdast-util-from-markdown.git"
+        "url": "https://github.com/sigma-andex/purescript-mdast.git"
     },
     "ignore": [
         "**/.*",
