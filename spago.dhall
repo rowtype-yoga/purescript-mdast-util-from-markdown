@@ -1,13 +1,9 @@
 { name = "mdast-util-from-markdown"
 , dependencies =
-  [ "aff"
-  , "aff-promise"
-  , "argonaut"
-  , "console"
-  , "debug"
+  [ "argonaut"
   , "effect"
   , "either"
-  , "foldable-traversable"
+  , "exceptions"
   , "maybe"
   , "prelude"
   ]

@@ -8,6 +8,5 @@ in      conf
               , "effect"
               , "spec"
               , "spec-discovery"
-              , "strings"
               ]
         }

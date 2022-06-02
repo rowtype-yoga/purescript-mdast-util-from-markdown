@@ -8,15 +8,11 @@ module MdAst.MdAst
 
 import Prelude
 
-import Control.Promise (Promise)
-import Control.Promise as Promise
 import Data.Argonaut (class DecodeJson, class EncodeJson, Json, JsonDecodeError(..), decodeJson, encodeJson, printJsonDecodeError, stringify, (.:), (.:?))
 import Data.Either (Either(..), either)
 import Data.Maybe (Maybe)
-import Data.Traversable (for, sequence, traverse)
-import Debug (spy)
 import Effect (Effect)
-import Effect.Aff (Aff, error, throwError)
+import Effect.Exception (throw)
 
 foreign import fromMarkdownImpl :: String -> Effect Json
 
@@ -27,7 +23,7 @@ fromMarkdown :: String -> Effect Markdown
 fromMarkdown doc = fromMarkdownImpl doc >>= tryDecode
   where
   tryDecode :: Json -> Effect Markdown
-  tryDecode = decodeJson >>> either (printJsonDecodeError >>> error >>> throwError) pure
+  tryDecode = decodeJson >>> either (printJsonDecodeError >>> throw) pure
 
 toMarkdown :: Markdown -> Effect String
 toMarkdown md = encodeJson md # toMarkdownImpl
