@@ -2,6 +2,7 @@ module Data.Lens.Barlow.BarlowSpec where
 
 import Prelude
 
+import Effect.Class (liftEffect)
 import MdAst.MdAst as MD
 import Prelude (Unit, bind)
 import Test.Spec (Spec, describe, it)
@@ -12,7 +13,7 @@ spec =
   describe "MdAst" do
     describe "fromMarkdown" do
       it "should parse a markdown string" do
-        actual <- MD.fromMarkdown "# Hello world\n ## Subparagraph"
+        actual <- liftEffect $ MD.fromMarkdown "# Hello world\n ## Subparagraph"
         let
           expected = MD.Root
             { children:

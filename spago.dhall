@@ -10,12 +10,10 @@
   , "foldable-traversable"
   , "maybe"
   , "prelude"
-  , "psci-support"
-  , "spec"
-  , "spec-discovery"
   ]
 , packages = ./packages.dhall
-, sources = [ "src/**/*.purs", "test/**/*.purs" ]
+, sources = [ "src/**/*.purs" ]
 , license = "MIT-0"
-, repository = "https://github.com/sigma-andex/purescript-mdast-util-from-markdown.git"
+, repository =
+    "https://github.com/sigma-andex/purescript-mdast-util-from-markdown.git"
 }

@@ -2,7 +2,9 @@ module MdAst.MdAst
   ( Markdown(..)
   , MarkdownNode(..)
   , fromMarkdown
-  ) where
+  , toMarkdown
+  )
+  where
 
 import Prelude
 
@@ -16,13 +18,19 @@ import Debug (spy)
 import Effect (Effect)
 import Effect.Aff (Aff, error, throwError)
 
-foreign import fromMarkdownImpl :: String -> Effect (Promise Json)
+foreign import fromMarkdownImpl :: String -> Effect Json
 
-fromMarkdown :: String -> Aff Markdown
-fromMarkdown doc = fromMarkdownImpl doc # Promise.toAffE >>= tryDecode
+foreign import toMarkdownImpl :: Json -> Effect String
+
+
+fromMarkdown :: String -> Effect Markdown
+fromMarkdown doc = fromMarkdownImpl doc >>= tryDecode
   where
-  tryDecode :: Json -> Aff Markdown
+  tryDecode :: Json -> Effect Markdown
   tryDecode = decodeJson >>> either (printJsonDecodeError >>> error >>> throwError) pure
+
+toMarkdown :: Markdown -> Effect String
+toMarkdown md = encodeJson md # toMarkdownImpl
 
 data Markdown = Root { children :: Array MarkdownNode }
 data MarkdownNode

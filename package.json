@@ -17,9 +17,8 @@
     "url": "https://github.com/sigma-andex/purescript-mdast-util-from-markdown/issues"
   },
   "homepage": "https://github.com/sigma-andex/purescript-mdast-util-from-markdown#readme",
-  "devDependencies": {
-    "purs-tidy": "^0.6.4",
-    "mdast-util-from-markdown-facade": "file:./mdast-util-from-markdown-facade",
-    "spago": "^0.20.3"
+  "dependencies": {
+    "mdast-util-from-markdown": "^1.2.0",
+    "mdast-util-to-markdown": "^1.3.0"
   }
 }
